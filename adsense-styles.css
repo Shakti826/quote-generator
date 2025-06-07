@@ -1,0 +1,103 @@
+/* AdSense Container Styles - Add to styles.css */
+
+/* AdSense Containers */
+.ad-container {
+    margin: 20px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ad-banner {
+    margin: 20px 0 30px 0;
+    max-width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ad-sidebar {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-middle {
+    margin: 30px 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.ad-bottom {
+    margin: 30px 0 20px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/* Responsive Ad Layouts */
+@media (max-width: 768px) {
+    .ad-sidebar {
+        order: 2;
+        margin-top: 20px;
+        min-height: 200px;
+    }
+    
+    .ad-banner,
+    .ad-middle,
+    .ad-bottom {
+        margin: 15px 0;
+        padding: 10px;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* AdSense Responsive Units */
+.adsbygoogle {
+    display: block;
+    min-height: 50px;
+    background: #f8f9fa;
+    border: 1px dashed #dee2e6;
+    border-radius: 8px;
+}
+
+/* Ad placeholder styling (before AdSense approval) */
+.adsbygoogle:empty::before {
+    content: "Advertisement";
+    display: block;
+    text-align: center;
+    color: #6c757d;
+    font-size: 12px;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Hide ad containers if ads fail to load */
+.ad-container:has(.adsbygoogle:empty) {
+    display: none;
+}
+
+/* Ensure ads don't interfere with main content */
+.ad-container {
+    isolation: isolate;
+    z-index: 1;
+}
+
+.quote-section,
+.controls-section {
+    z-index: 2;
+    position: relative;
+}
